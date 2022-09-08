@@ -8,38 +8,42 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Level extends AppCompatActivity {
-    TextView txtLevel,txtTimer,txtQuestionNumber,txtScore,txtQuestion;
-    int questionIndex;
+    TextView txtLevel, txtQuestionNumber, txtQuestion, txtTimer;
+    String level;
     CountDownTimer countDownTimer;
-    String Level;
+    int questionIndex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        String Level = getIntent().getStringExtra("Level");
-        txtLevel=(TextView) findViewById(R.id.Level);
-        txtLevel.setText(Level);
-        txtTimer=(TextView) findViewById(R.id.Timer);
-        txtQuestionNumber=(TextView) findViewById(R.id.QuestionNumber);
-
-        txtQuestion=(TextView) findViewById(R.id.Question);
-        if(Level.equals("Level0")){
+        txtLevel = findViewById(R.id.idtxtLevel);
+        txtQuestionNumber = findViewById(R.id.idtxtQNum);
+        txtQuestion = findViewById(R.id.idQuestion);
+        txtTimer = findViewById(R.id.idtxtTimer);
+        level = getIntent().getStringExtra("Level");
+        txtLevel.setText(level);
+        if(level.equals("0")){
             txtTimer.setVisibility(View.INVISIBLE);
         }
         setUpQuestion();
     }
+    public void setUpQuestion(){
+        if (!(level.equals("Level0"))) {
+            setTimer();
+        }
+
+    }
     public void setTimer(){
-        int MiliSecond =0;
-        if(Level.equals("Level1")) {
-            MiliSecond = 21000;
+        int miliSecond = 0;
+        if (level.equals("Level1")) {
+            miliSecond = 21000;
+        } else if (level.equals("Level2")) {
+            miliSecond = 11000;
         }
-        else if (Level.equals("Level2")) {
-            MiliSecond = 11000;
-        }
-        countDownTimer=new CountDownTimer(MiliSecond,1000) {
+        countDownTimer = new CountDownTimer(miliSecond, 1000) {
             @Override
             public void onTick(long l) {
-                txtTimer.setText("Timer:00:"+l/1000);
+                txtTimer.setText("Timer:00:" + l / 1000);
             }
 
             @Override
@@ -47,10 +51,7 @@ public class Level extends AppCompatActivity {
 
             }
         }.start();
+
     }
-    public void setUpQuestion(){
-        if(!(Level.equals("Level0"))){
-            setTimer();
-        }
-    }
+
 }

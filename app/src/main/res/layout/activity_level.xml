@@ -8,9 +8,9 @@
     tools:context=".Level">
 
     <TextView
-        android:id="@+id/Level"
-        android:layout_width="112dp"
-        android:layout_height="62dp"
+        android:id="@+id/idtxtLevel"
+        android:layout_width="247dp"
+        android:layout_height="70dp"
         android:text="Level"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.094" />
 
     <TextView
-        android:id="@+id/Question"
+        android:id="@+id/idtxtQNum"
         android:layout_width="63dp"
         android:layout_height="39dp"
         android:text="N/10"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.223" />
 
     <TextView
-        android:id="@+id/Timer"
+        android:id="@+id/idtxtTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=" 00:20"
@@ -46,10 +46,11 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <TextView
-        android:id="@+id/QuestionNumber"
+        android:id="@+id/idQuestion"
         android:layout_width="97dp"
         android:layout_height="28dp"
         android:text="1 + 2 will be"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
